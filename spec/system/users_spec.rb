@@ -39,6 +39,7 @@ RSpec.describe 'Users', type: :system do
           expect(page).to have_content '1 error prohibited this user from being saved'
           expect(page).to have_content "Email has already been taken"
           expect(current_path).to eq users_path
+          expect(page).to have_field 'Email', with: exist_user.email
         end
       end
     end
